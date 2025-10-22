@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLog - Iniciar Sesión</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="auth-card">
+            <div class="auth-image">
+                <img src="images/imagenGym.jpg" alt="Imagen Gym">
+            </div>
+            <div class="auth-form">
+                <h1>FitLog</h1>
+                <p class="subtitle">Tu diario de entrenamiento</p>
+
+                <form id="loginForm">
+                    <h2>Iniciar Sesión</h2>
+                    <div class="input-group">
+                        <label for="loginUsername">Usuario:</label>
+                        <input type="text" id="loginUsername" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="loginPassword">Contraseña:</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Entrar</button>
+                </form>
+
+                <p style="text-align:center; margin-top:10px;">¿No tienes cuenta? <a href="register.html">Regístrate</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Librería para SHA-256 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="js/debug.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

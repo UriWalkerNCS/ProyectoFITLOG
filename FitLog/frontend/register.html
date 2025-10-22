@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLog - Registrarse</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="js/debug.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="auth-card">
+            <div class="auth-image">
+                <img src="images/imagenGym.jpg" alt="Imagen Gym">
+            </div>
+            <div class="auth-form">
+                <h1>FitLog</h1>
+                <p class="subtitle">Crear una cuenta</p>
+
+                <form id="registerForm">
+                    <h2>Registrarse</h2>
+                    <div class="input-group">
+                        <label for="regUsername">Usuario:</label>
+                        <input type="text" id="regUsername" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="regPassword">Contraseña:</label>
+                        <input type="password" id="regPassword" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Crear Cuenta</button>
+                </form>
+
+                <p style="text-align:center; margin-top:10px;">¿Ya tienes cuenta? <a href="index.html">Inicia sesión</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

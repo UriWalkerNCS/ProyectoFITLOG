@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLog - Mi Dashboard</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1>FitLog</h1>
+                <div class="user-info">
+                    <span id="usernameDisplay">Usuario</span>
+                    <button id="logoutBtn" class="btn-logout">Cerrar Sesión</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Estadísticas Rápidas -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <h3>Rutinas Totales</h3>
+                    <p id="totalWorkouts" class="stat-number">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Ejercicios Realizados</h3>
+                    <p id="totalExercises" class="stat-number">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Última Rutina</h3>
+                    <p id="lastWorkout" class="stat-date">-</p>
+                </div>
+            </section>
+
+            <!-- Acciones Rápidas -->
+            <section class="actions-section">
+                <button id="addWorkoutBtn" class="btn-action primary">
+                    Nueva Rutina
+                </button>
+                <button id="viewProgressBtn" class="btn-action secondary">
+                    Ver Progreso
+                </button>
+            </section>
+
+            <!-- Lista de Rutinas Recientes -->
+            <section class="workouts-section">
+                <h2>Rutinas Recientes</h2>
+                <div id="workoutsList" class="workouts-list">
+                    <!-- Las rutinas se cargarán aquí con JavaScript -->
+                </div>
+                <div id="emptyState" class="empty-state">
+                    <p>Aún no tienes rutinas registradas</p>
+                    <p>Crea tu primera rutina para empezar a trackear tu progreso</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/debug.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

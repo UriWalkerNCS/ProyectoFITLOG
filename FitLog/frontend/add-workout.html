@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLog - Nueva Rutina</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/workout.css">
+</head>
+<body>
+    <div class="workout-container">
+        <header class="workout-header">
+            <div class="header-content">
+                <h1> FitLog</h1>
+                <div class="header-actions">
+                    <a href="dashboard.html" class="btn-back">← Volver</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="workout-main">
+            <div class="workout-form-container">
+                <h2>➕ Crear Nueva Rutina</h2>
+                
+                <form id="workoutForm">
+                    <div class="form-group">
+                        <label for="workoutType">Tipo de Rutina:</label>
+                        <select id="workoutType" required>
+                            <option value="">Selecciona un tipo</option>
+                            <option value="Pierna">Pierna</option>
+                            <option value="Espalda">Espalda</option>
+                            <option value="Pecho">Pecho</option>
+                            <option value="Hombros">Hombros</option>
+                            <option value="Brazos">Brazos</option>
+                            <option value="Cardio">Cardio</option>
+                            <option value="Full Body">Full Body</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="workoutDate">Fecha:</label>
+                        <input type="date" id="workoutDate" required>
+                    </div>
+
+                    <div class="exercises-section">
+                        <h3>Ejercicios</h3>
+                        <div id="exercisesContainer">
+                            <!-- Los ejercicios se agregarán aquí dinámicamente -->
+                        </div>
+                        <button type="button" id="addExerciseBtn" class="btn-add-exercise">
+                            Agregar Ejercicio
+                        </button>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">💾 Guardar Rutina</button>
+                        <a href="dashboard.html" class="btn-cancel">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/debug.js"></script>
+    <script src="js/workout.js"></script>
+</body>
+</html>
