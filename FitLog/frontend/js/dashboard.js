@@ -551,76 +551,192 @@ class Dashboard {
                 border: 1px solid var(--border-color);
                 border-radius: var(--radius-lg);
                 padding: var(--space-lg);
-                max-width: 600px;
-                width: 90%;
-                max-height: 80vh;
+                max-width: 700px;
+                width: 95%;
+                max-height: 85vh;
                 overflow-y: auto;
                 position: relative;
+                box-shadow: var(--shadow-xl);
             ">
-                <button class="btn btn-ghost btn-small" style="position: absolute; top: var(--space-md); right: var(--space-md);" id="closeProgressModal">
+                <!-- BOTÓN DE CIERRE MÁS GRANDE - SOLO ESTE -->
+                <button class="btn btn-ghost" style="
+                    position: absolute; 
+                    top: 1rem; 
+                    right: 1rem; 
+                    width: 44px; 
+                    height: 44px; 
+                    border-radius: 50%; 
+                    display: flex; 
+                    align-items: center; 
+                    justify-content: center;
+                    font-size: 1.3rem;
+                    background: rgba(239, 68, 68, 0.1);
+                    border: 2px solid rgba(239, 68, 68, 0.3);
+                    color: #E53E3E;
+                    z-index: 10001;
+                " id="closeProgressModal">
                     <i class="fas fa-times"></i>
                 </button>
                 
-                <div class="card-header mb-md">
-                    <h2 class="card-title">
-                        <i class="fas fa-chart-line icon"></i>
+                <div class="card-header mb-lg">
+                    <h2 class="card-title" style="font-size: 1.8rem; margin-bottom: 0.5rem;">
+                        <i class="fas fa-chart-line icon" style="color: var(--primary-purple);"></i>
                         Tu Progreso
                     </h2>
-                    <p class="card-subtitle">Resumen de tu actividad fitness</p>
+                    <p class="card-subtitle" style="color: var(--text-secondary); font-size: 1.1rem;">
+                        Resumen detallado de tu actividad fitness
+                    </p>
                 </div>
                 
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); margin-bottom: var(--space-lg);">
-                    <div style="text-align: center; padding: var(--space-md); background: rgba(139, 92, 246, 0.1); border-radius: var(--radius-md);">
-                        <div class="typography-caption">
-                            <i class="fas fa-dumbbell icon-small"></i>
+                <!-- ESTADÍSTICAS PRINCIPALES -->
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
+                    <div style="
+                        text-align: center; 
+                        padding: 2rem 1rem; 
+                        background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));
+                        border: 2px solid rgba(139, 92, 246, 0.2);
+                        border-radius: var(--radius-lg);
+                        position: relative;
+                        overflow: hidden;
+                    ">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--primary-gradient);"></div>
+                        <div class="typography-caption" style="margin-bottom: 0.75rem;">
+                            <i class="fas fa-dumbbell icon-small" style="color: var(--primary-purple);"></i>
                             Total Rutinas
                         </div>
-                        <div class="typography-display" style="font-size: 2rem;">${userWorkouts.length}</div>
+                        <div class="typography-display" style="font-size: 2.5rem; font-weight: 700; color: var(--primary-purple); margin-bottom: 0.5rem;">
+                            ${userWorkouts.length}
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">
+                            Rutinas completadas
+                        </div>
                     </div>
-                    <div style="text-align: center; padding: var(--space-md); background: rgba(236, 72, 153, 0.1); border-radius: var(--radius-md);">
-                        <div class="typography-caption">
-                            <i class="fas fa-list-check icon-small"></i>
+                    
+                    <div style="
+                        text-align: center; 
+                        padding: 2rem 1rem; 
+                        background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(236, 72, 153, 0.05));
+                        border: 2px solid rgba(236, 72, 153, 0.2);
+                        border-radius: var(--radius-lg);
+                        position: relative;
+                        overflow: hidden;
+                    ">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent-gradient);"></div>
+                        <div class="typography-caption" style="margin-bottom: 0.75rem;">
+                            <i class="fas fa-list-check icon-small" style="color: var(--accent-pink);"></i>
                             Total Ejercicios
                         </div>
-                        <div class="typography-display" style="font-size: 2rem;">${totalExercises}</div>
+                        <div class="typography-display" style="font-size: 2.5rem; font-weight: 700; color: var(--accent-pink); margin-bottom: 0.5rem;">
+                            ${totalExercises}
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">
+                            Ejercicios realizados
+                        </div>
                     </div>
                 </div>
                 
-                <div style="margin-bottom: var(--space-lg);">
-                    <h3 class="typography-heading-3 mb-sm">
-                        <i class="fas fa-star icon-small"></i>
+                <!-- TIPO DE RUTINA MÁS COMÚN -->
+                <div style="
+                    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+                    border: 2px solid rgba(16, 185, 129, 0.2);
+                    border-radius: var(--radius-lg);
+                    padding: 1.5rem;
+                    margin-bottom: 1.5rem;
+                    position: relative;
+                    overflow: hidden;
+                ">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--success-gradient);"></div>
+                    <h3 class="typography-heading-3 mb-sm" style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-star icon-small" style="color: var(--success);"></i>
                         Tipo de Rutina Más Común
                     </h3>
-                    <div style="background: var(--bg-hover); padding: var(--space-md); border-radius: var(--radius-md);">
-                        <span class="workout-type">${this.getWorkoutTypeDisplay(mostCommonType)}</span>
-                        <span class="typography-body" style="margin-left: var(--space-sm);">
-                            (${workoutTypes[mostCommonType]} veces)
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <span class="workout-type" style="font-size: 1rem;">${this.getWorkoutTypeDisplay(mostCommonType)}</span>
+                        <span class="typography-body" style="
+                            background: rgba(16, 185, 129, 0.2);
+                            padding: 0.25rem 0.75rem;
+                            border-radius: var(--radius-xl);
+                            color: var(--success);
+                            font-weight: 600;
+                        ">
+                            ${workoutTypes[mostCommonType]} vez${workoutTypes[mostCommonType] !== 1 ? 'es' : ''}
                         </span>
                     </div>
                 </div>
                 
-                <div>
-                    <h3 class="typography-heading-3 mb-sm">
-                        <i class="fas fa-chart-pie icon-small"></i>
+                <!-- DISTRIBUCIÓN DE RUTINAS -->
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 class="typography-heading-3 mb-sm" style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-chart-pie icon-small" style="color: var(--warning);"></i>
                         Distribución de Rutinas
                     </h3>
-                    ${Object.entries(workoutTypes).map(([type, count]) => `
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xs); padding: var(--space-sm); background: rgba(255,255,255,0.02); border-radius: var(--radius-md);">
-                            <span class="typography-body">${this.getWorkoutTypeDisplay(type)}</span>
-                            <span class="typography-body-small">${count} rutina${count !== 1 ? 's' : ''}</span>
-                        </div>
-                    `).join('')}
+                    <div style="
+                        background: rgba(255,255,255,0.02);
+                        border: 1px solid var(--border-color);
+                        border-radius: var(--radius-lg);
+                        overflow: hidden;
+                    ">
+                        ${Object.entries(workoutTypes).map(([type, count]) => {
+                            const percentage = ((count / userWorkouts.length) * 100).toFixed(1);
+                            const colorIndex = Object.keys(workoutTypes).indexOf(type) % 4;
+                            const colors = ['var(--primary-purple)', 'var(--accent-pink)', 'var(--success)', 'var(--warning)'];
+                            const color = colors[colorIndex];
+                            
+                            return `
+                                <div style="
+                                    display: flex; 
+                                    justify-content: space-between; 
+                                    align-items: center; 
+                                    padding: 1rem 1.5rem;
+                                    border-bottom: 1px solid var(--border-color);
+                                    transition: all 0.3s ease;
+                                ">
+                                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                        <div style="
+                                            width: 12px;
+                                            height: 12px;
+                                            border-radius: 50%;
+                                            background: ${color};
+                                        "></div>
+                                        <span class="typography-body">${this.getWorkoutTypeDisplay(type)}</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 1rem;">
+                                        <span class="typography-body-small" style="color: var(--text-muted);">
+                                            ${percentage}%
+                                        </span>
+                                        <span class="typography-body-small" style="
+                                            background: rgba(139, 92, 246, 0.1);
+                                            padding: 0.25rem 0.5rem;
+                                            border-radius: var(--radius-sm);
+                                            color: var(--primary-purple);
+                                            font-weight: 600;
+                                        ">
+                                            ${count} rutina${count !== 1 ? 's' : ''}
+                                        </span>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
                 </div>
                 
-                <div class="form-actions mt-lg">
-                    <button class="btn btn-primary" id="exportDataBtn">
-                        <i class="fas fa-download icon"></i>
-                        Exportar Datos
-                    </button>
-                    <button class="btn btn-ghost" id="closeProgressBtn">
-                        <i class="fas fa-times icon"></i>
-                        Cerrar
-                    </button>
+                <!-- INFORMACIÓN ADICIONAL -->
+                <div style="
+                    background: rgba(245, 158, 11, 0.05);
+                    border: 1px solid rgba(245, 158, 11, 0.2);
+                    border-radius: var(--radius-lg);
+                    padding: 1.25rem;
+                    text-align: center;
+                ">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <i class="fas fa-trophy" style="color: var(--warning);"></i>
+                        <span class="typography-body" style="color: var(--warning); font-weight: 600;">
+                            ¡Sigue así!
+                        </span>
+                    </div>
+                    <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">
+                        Has completado ${userWorkouts.length} rutina${userWorkouts.length !== 1 ? 's' : ''} con un total de ${totalExercises} ejercicio${totalExercises !== 1 ? 's' : ''}
+                    </p>
                 </div>
             </div>
         `;
@@ -631,12 +747,8 @@ class Dashboard {
             document.body.removeChild(modal);
         };
 
+        // SOLO UN EVENT LISTENER PARA CERRAR
         document.getElementById('closeProgressModal').addEventListener('click', closeProgressModal);
-        document.getElementById('closeProgressBtn').addEventListener('click', closeProgressModal);
-
-        document.getElementById('exportDataBtn').addEventListener('click', () => {
-            alert('Funcionalidad de exportación en desarrollo...');
-        });
 
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
@@ -686,92 +798,231 @@ class Dashboard {
                 border: 1px solid var(--border-color);
                 border-radius: var(--radius-lg);
                 padding: var(--space-lg);
-                max-width: 800px;
-                width: 90%;
-                max-height: 80vh;
+                max-width: 900px;
+                width: 95%;
+                max-height: 85vh;
                 overflow-y: auto;
                 position: relative;
+                box-shadow: var(--shadow-xl);
             ">
-                <button class="btn btn-ghost btn-small" style="position: absolute; top: var(--space-md); right: var(--space-md);" id="closeHistoryModal">
+                <!-- BOTÓN DE CIERRE MÁS GRANDE - SOLO ESTE -->
+                <button class="btn btn-ghost" style="
+                    position: absolute; 
+                    top: 1rem; 
+                    right: 1rem; 
+                    width: 44px; 
+                    height: 44px; 
+                    border-radius: 50%; 
+                    display: flex; 
+                    align-items: center; 
+                    justify-content: center;
+                    font-size: 1.3rem;
+                    background: rgba(239, 68, 68, 0.1);
+                    border: 2px solid rgba(239, 68, 68, 0.3);
+                    color: #E53E3E;
+                    z-index: 10001;
+                " id="closeHistoryModal">
                     <i class="fas fa-times"></i>
                 </button>
                 
-                <div class="card-header mb-md">
-                    <h2 class="card-title">
-                        <i class="fas fa-history icon"></i>
+                <div class="card-header mb-lg">
+                    <h2 class="card-title" style="font-size: 1.8rem; margin-bottom: 0.5rem;">
+                        <i class="fas fa-history icon" style="color: var(--primary-purple);"></i>
                         Historial Completo
                     </h2>
-                    <p class="card-subtitle">Todas tus rutinas registradas</p>
+                    <p class="card-subtitle" style="color: var(--text-secondary); font-size: 1.1rem;">
+                        <i class="fas fa-list-check icon-small"></i>
+                        ${sortedWorkouts.length} rutina${sortedWorkouts.length !== 1 ? 's' : ''} registrada${sortedWorkouts.length !== 1 ? 's' : ''}
+                    </p>
                 </div>
                 
-                <div style="max-height: 50vh; overflow-y: auto;">
-                    ${sortedWorkouts.map(workout => {
-                        const workoutDate = new Date(workout.date);
-                        const formattedDate = workoutDate.toLocaleDateString('es-ES', {
-                            weekday: 'long',
-                            day: 'numeric',
-                            month: 'long',
-                            year: 'numeric'
-                        });
-                        
-                        const exerciseCount = workout.exercises ? workout.exercises.length : 0;
-                        
-                        return `
-                            <div style="
-                                background: rgba(255,255,255,0.02);
-                                border: 1px solid var(--border-color);
-                                border-radius: var(--radius-md);
-                                padding: var(--space-md);
-                                margin-bottom: var(--space-sm);
-                            ">
-                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-sm);">
-                                    <div>
-                                        <h4 style="margin: 0 0 var(--space-xs) 0; color: var(--text-primary);">
-                                            ${this.getWorkoutTypeDisplay(workout.type)}
-                                        </h4>
-                                        <p style="margin: 0; color: var(--text-muted); font-size: 0.875rem;">
-                                            <i class="fas fa-calendar icon-small"></i>
-                                            ${formattedDate}
-                                        </p>
+                <div style="
+                    max-height: 60vh; 
+                    overflow-y: auto;
+                    padding-right: 0.5rem;
+                ">
+                    <!-- Estilos para scrollbar personalizado -->
+                    <style>
+                        .history-scroll::-webkit-scrollbar {
+                            width: 6px;
+                        }
+                        .history-scroll::-webkit-scrollbar-track {
+                            background: rgba(255,255,255,0.05);
+                            border-radius: 3px;
+                        }
+                        .history-scroll::-webkit-scrollbar-thumb {
+                            background: var(--primary-purple);
+                            border-radius: 3px;
+                        }
+                    </style>
+                    
+                    <div class="history-scroll" style="max-height: 60vh; overflow-y: auto;">
+                        ${sortedWorkouts.map((workout, index) => {
+                            const workoutDate = new Date(workout.date);
+                            const formattedDate = workoutDate.toLocaleDateString('es-ES', {
+                                weekday: 'long',
+                                day: 'numeric',
+                                month: 'long',
+                                year: 'numeric'
+                            });
+                            
+                            const exerciseCount = workout.exercises ? workout.exercises.length : 0;
+                            const totalSets = workout.exercises ? workout.exercises.reduce((sum, ex) => sum + ex.sets, 0) : 0;
+                            
+                            // Colores alternados para mejor visualización
+                            const cardColors = [
+                                'rgba(139, 92, 246, 0.05)',
+                                'rgba(236, 72, 153, 0.05)', 
+                                'rgba(59, 130, 246, 0.05)',
+                                'rgba(16, 185, 129, 0.05)'
+                            ];
+                            const cardColor = cardColors[index % cardColors.length];
+                            
+                            return `
+                                <div style="
+                                    background: ${cardColor};
+                                    border: 2px solid rgba(139, 92, 246, 0.1);
+                                    border-radius: var(--radius-lg);
+                                    padding: 1.5rem;
+                                    margin-bottom: 1rem;
+                                    transition: all 0.3s ease;
+                                    position: relative;
+                                    overflow: hidden;
+                                ">
+                                    <!-- Indicador de tipo de rutina -->
+                                    <div style="
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        width: 6px;
+                                        height: 100%;
+                                        background: var(--primary-gradient);
+                                    "></div>
+                                    
+                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; margin-left: 0.5rem;">
+                                        <div style="flex: 1;">
+                                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                                                <h4 style="margin: 0; color: var(--text-primary); font-size: 1.2rem; font-weight: 600;">
+                                                    ${this.getWorkoutTypeDisplay(workout.type)}
+                                                </h4>
+                                                <span style="
+                                                    background: var(--primary-gradient);
+                                                    color: white;
+                                                    padding: 0.25rem 0.75rem;
+                                                    border-radius: var(--radius-xl);
+                                                    font-size: 0.75rem;
+                                                    font-weight: 600;
+                                                ">
+                                                    #${index + 1}
+                                                </span>
+                                            </div>
+                                            <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">
+                                                <i class="fas fa-calendar icon-small" style="color: var(--accent-pink);"></i>
+                                                ${formattedDate}
+                                            </p>
+                                        </div>
+                                        <div style="text-align: right;">
+                                            <div style="display: flex; gap: 1rem; align-items: center;">
+                                                <div style="text-align: center;">
+                                                    <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem;">
+                                                        <i class="fas fa-list-check"></i> Ejercicios
+                                                    </div>
+                                                    <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary-purple);">
+                                                        ${exerciseCount}
+                                                    </div>
+                                                </div>
+                                                <div style="text-align: center;">
+                                                    <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem;">
+                                                        <i class="fas fa-layer-group"></i> Series
+                                                    </div>
+                                                    <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-pink);">
+                                                        ${totalSets}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <span class="workout-type" style="font-size: 0.7rem;">
-                                        ${exerciseCount} ej.
-                                    </span>
+                                    
+                                    <div style="margin-left: 0.5rem;">
+                                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
+                                            ${workout.exercises ? workout.exercises.slice(0, 3).map(exercise => `
+                                                <span style="
+                                                    background: rgba(139, 92, 246, 0.1);
+                                                    padding: 0.5rem 0.75rem;
+                                                    border-radius: var(--radius-md);
+                                                    font-size: 0.8rem;
+                                                    color: var(--text-primary);
+                                                    border: 1px solid rgba(139, 92, 246, 0.2);
+                                                    display: flex;
+                                                    align-items: center;
+                                                    gap: 0.5rem;
+                                                ">
+                                                    <i class="fas fa-dumbbell" style="color: var(--primary-purple); font-size: 0.7rem;"></i>
+                                                    ${exercise.name}
+                                                    <span style="
+                                                        background: rgba(236, 72, 153, 0.1);
+                                                        padding: 0.1rem 0.4rem;
+                                                        border-radius: var(--radius-sm);
+                                                        font-size: 0.7rem;
+                                                        color: var(--accent-pink);
+                                                        margin-left: 0.25rem;
+                                                    ">
+                                                        ${exercise.sets}×${exercise.reps}
+                                                    </span>
+                                                </span>
+                                            `).join('') : ''}
+                                            ${exerciseCount > 3 ? `
+                                                <span style="
+                                                    background: rgba(16, 185, 129, 0.1);
+                                                    padding: 0.5rem 0.75rem;
+                                                    border-radius: var(--radius-md);
+                                                    font-size: 0.8rem;
+                                                    color: var(--success);
+                                                    border: 1px solid rgba(16, 185, 129, 0.2);
+                                                    display: flex;
+                                                    align-items: center;
+                                                    gap: 0.5rem;
+                                                ">
+                                                    <i class="fas fa-plus" style="font-size: 0.7rem;"></i>
+                                                    +${exerciseCount - 3} más
+                                                </span>
+                                            ` : ''}
+                                        </div>
+                                        
+                                        ${workout.notes ? `
+                                            <div style="
+                                                background: rgba(245, 158, 11, 0.05);
+                                                border: 1px solid rgba(245, 158, 11, 0.2);
+                                                border-radius: var(--radius-md);
+                                                padding: 0.75rem;
+                                                margin-top: 0.5rem;
+                                            ">
+                                                <div style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                                                    <i class="fas fa-sticky-note" style="color: var(--warning); font-size: 0.8rem; margin-top: 0.1rem;"></i>
+                                                    <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.4;">
+                                                        "${workout.notes}"
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        ` : ''}
+                                    </div>
                                 </div>
-                                <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
-                                    ${workout.exercises ? workout.exercises.slice(0, 2).map(exercise => `
-                                        <span style="
-                                            background: rgba(139, 92, 246, 0.1);
-                                            padding: 4px 8px;
-                                            border-radius: var(--radius-sm);
-                                            font-size: 0.75rem;
-                                            color: var(--text-secondary);
-                                        ">
-                                            ${exercise.name}
-                                        </span>
-                                    `).join('') : ''}
-                                    ${exerciseCount > 2 ? `
-                                        <span style="
-                                            background: rgba(139, 92, 246, 0.05);
-                                            padding: 4px 8px;
-                                            border-radius: var(--radius-sm);
-                                            font-size: 0.75rem;
-                                            color: var(--text-muted);
-                                        ">
-                                            +${exerciseCount - 2} más
-                                        </span>
-                                    ` : ''}
-                                </div>
-                            </div>
-                        `;
-                    }).join('')}
+                            `;
+                        }).join('')}
+                    </div>
                 </div>
                 
-                <div class="form-actions mt-lg">
-                    <button class="btn btn-ghost" id="closeHistoryBtn">
-                        <i class="fas fa-times icon"></i>
-                        Cerrar
-                    </button>
+                <!-- FOOTER INFORMATIVO - SIN BOTÓN DE CERRAR -->
+                <div style="
+                    margin-top: 1.5rem;
+                    padding-top: 1rem;
+                    border-top: 2px solid var(--border-color);
+                    text-align: center;
+                ">
+                    <p style="margin: 0; color: var(--text-muted); font-size: 0.9rem;">
+                        <i class="fas fa-info-circle" style="color: var(--primary-purple);"></i>
+                        Mostrando ${sortedWorkouts.length} rutina${sortedWorkouts.length !== 1 ? 's' : ''} en tu historial
+                    </p>
                 </div>
             </div>
         `;
@@ -782,8 +1033,8 @@ class Dashboard {
             document.body.removeChild(modal);
         };
 
+        // SOLO UN EVENT LISTENER PARA CERRAR
         document.getElementById('closeHistoryModal').addEventListener('click', closeHistoryModal);
-        document.getElementById('closeHistoryBtn').addEventListener('click', closeHistoryModal);
 
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
