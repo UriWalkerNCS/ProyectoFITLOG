@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FitLog - Nueva Rutina</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/workout.css">
 </head>
@@ -11,50 +12,195 @@
     <div class="workout-container">
         <header class="workout-header">
             <div class="header-content">
-                <h1> FitLog</h1>
-                <div class="header-actions">
-                    <a href="dashboard.html" class="btn-back">← Volver</a>
-                </div>
+                <h1><i class="fas fa-dumbbell"></i> FitLog</h1>
+                <a href="dashboard.html" class="btn-back">
+                    <i class="fas fa-arrow-left"></i>
+                    Volver al Dashboard
+                </a>
             </div>
         </header>
 
         <main class="workout-main">
             <div class="workout-form-container">
-                <h2>➕ Crear Nueva Rutina</h2>
+                <h2>
+                    <div class="icon">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    Crear Nueva Rutina
+                </h2>
                 
                 <form id="workoutForm">
-                    <div class="form-group">
-                        <label for="workoutType">Tipo de Rutina:</label>
-                        <select id="workoutType" required>
-                            <option value="">Selecciona un tipo</option>
-                            <option value="Pierna">Pierna</option>
-                            <option value="Espalda">Espalda</option>
-                            <option value="Pecho">Pecho</option>
-                            <option value="Hombros">Hombros</option>
-                            <option value="Brazos">Brazos</option>
-                            <option value="Cardio">Cardio</option>
-                            <option value="Full Body">Full Body</option>
-                        </select>
+                    <!-- Información Básica de la Rutina -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>
+                                <div class="icon">
+                                    <i class="fas fa-tag"></i>
+                                </div>
+                                Nombre de la Rutina
+                            </label>
+                            <input type="text" id="workoutName" placeholder="Ej: Rutina de Piernas Avanzada" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <div class="icon">
+                                    <i class="fas fa-dumbbell"></i>
+                                </div>
+                                Tipo de Rutina
+                            </label>
+                            <select id="workoutType" required>
+                                <option value="">Selecciona un tipo</option>
+                                <option value="Pierna">Pierna</option>
+                                <option value="Espalda">Espalda</option>
+                                <option value="Pecho">Pecho</option>
+                                <option value="Hombros">Hombros</option>
+                                <option value="Brazos">Brazos</option>
+                                <option value="Cardio">Cardio</option>
+                                <option value="Full Body">Full Body</option>
+                                <option value="Yoga">Yoga</option>
+                                <option value="Calistenia">Calistenia</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>
+                                <div class="icon">
+                                    <i class="fas fa-calendar"></i>
+                                </div>
+                                Fecha
+                            </label>
+                            <input type="date" id="workoutDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <div class="icon">
+                                    <i class="fas fa-bullseye"></i>
+                                </div>
+                                Objetivo
+                            </label>
+                            <select id="workoutGoal">
+                                <option value="">Selecciona un objetivo</option>
+                                <option value="Fuerza">Ganar Fuerza</option>
+                                <option value="Hipertrofia">Hipertrofia</option>
+                                <option value="Resistencia">Resistencia</option>
+                                <option value="Pérdida de Peso">Pérdida de Peso</option>
+                                <option value="Definición">Definición Muscular</option>
+                                <option value="Mantenimiento">Mantenimiento</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>
+                                <div class="icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                Duración
+                            </label>
+                            <div class="duration-group">
+                                <div class="duration-input">
+                                    <input type="number" id="workoutHours" min="0" max="5" placeholder="0" value="1">
+                                    <span class="duration-unit">Horas</span>
+                                </div>
+                                <div class="duration-input">
+                                    <input type="number" id="workoutMinutes" min="0" max="59" placeholder="0" value="0">
+                                    <span class="duration-unit">Minutos</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <div class="icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                Intensidad
+                            </label>
+                            <select id="workoutIntensity">
+                                <option value="">Selecciona intensidad</option>
+                                <option value="Baja">Baja</option>
+                                <option value="Moderada">Moderada</option>
+                                <option value="Alta">Alta</option>
+                                <option value="Extrema">Extrema</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="workoutDate">Fecha:</label>
-                        <input type="date" id="workoutDate" required>
+                        <label>
+                            <div class="icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            Calificación
+                        </label>
+                        <div class="rating-group">
+                            <div class="rating-stars" id="ratingStars">
+                                <button type="button" class="rating-star" data-rating="1">★</button>
+                                <button type="button" class="rating-star" data-rating="2">★</button>
+                                <button type="button" class="rating-star" data-rating="3">★</button>
+                                <button type="button" class="rating-star" data-rating="4">★</button>
+                                <button type="button" class="rating-star" data-rating="5">★</button>
+                            </div>
+                            <span id="ratingText">Sin calificar</span>
+                        </div>
                     </div>
 
+                    <div class="form-group">
+                        <label>
+                            <div class="icon">
+                                <i class="fas fa-sticky-note"></i>
+                            </div>
+                            Notas
+                        </label>
+                        <textarea id="workoutNotes" rows="3" placeholder="¿Cómo te sentiste? ¿Algún comentario sobre tu rendimiento?"></textarea>
+                    </div>
+
+                    <!-- Tips Section -->
+                    <div class="workout-tips">
+                        <p><strong>💡 Tip:</strong> Agrega ejercicios específicos para un mejor seguimiento de tu progreso.</p>
+                    </div>
+
+                    <!-- Sección de Ejercicios -->
                     <div class="exercises-section">
-                        <h3>Ejercicios</h3>
+                        <h3>
+                            <div class="icon">
+                                <i class="fas fa-list-check"></i>
+                            </div>
+                            Ejercicios
+                        </h3>
+                        
+                        
+                        
                         <div id="exercisesContainer">
                             <!-- Los ejercicios se agregarán aquí dinámicamente -->
                         </div>
+
                         <button type="button" id="addExerciseBtn" class="btn-add-exercise">
-                            Agregar Ejercicio
+                            <i class="fas fa-plus"></i>
+                            Agregar Nuevo Ejercicio
                         </button>
+
+                        <div class="exercise-counter">
+                            <span id="exerciseCount">0 ejercicios agregados</span>
+                            <span id="totalSetsReps">Total: 0 series, 0 repeticiones</span>
+                        </div>
                     </div>
 
+                    <!-- Acciones del Formulario -->
                     <div class="form-actions">
-                        <button type="submit" class="btn-primary">💾 Guardar Rutina</button>
-                        <a href="dashboard.html" class="btn-cancel">Cancelar</a>
+                        <button type="submit" class="btn-save">
+                            <i class="fas fa-save"></i>
+                            Guardar Rutina
+                        </button>
+                        <a href="dashboard.html" class="btn-cancel">
+                            <i class="fas fa-times"></i>
+                            Cancelar
+                        </a>
                     </div>
                 </form>
             </div>

@@ -4,59 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FitLog - Mi Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/design-system.css">
     <link rel="stylesheet" href="styles/dashboard.css">
 </head>
 <body>
     <div class="dashboard-container">
-        <!-- Header -->
+        <!-- Header Elegante -->
         <header class="dashboard-header">
             <div class="header-content">
-                <h1>FitLog</h1>
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="logo-text">FitLog</div>
+                </div>
+                
                 <div class="user-info">
-                    <span id="usernameDisplay">Usuario</span>
-                    <button id="logoutBtn" class="btn-logout">Cerrar Sesión</button>
+                    <div class="user-avatar" id="userAvatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <span id="usernameDisplay" class="typography-body">Usuario</span>
+                    <button id="logoutBtn" class="btn btn-ghost">
+                        <i class="fas fa-sign-out-alt icon"></i>
+                        Cerrar Sesión
+                    </button>
                 </div>
             </div>
         </header>
 
-        <!-- Main Content -->
+        <!-- Main Content - Mejor Organizado -->
         <main class="dashboard-main">
-            <!-- Estadísticas Rápidas -->
+            <!-- Welcome Section Mejorada -->
+            <section class="welcome-section">
+                <h1 class="welcome-title" id="welcomeTitle">
+                    <i class="fas fa-dumbbell"></i> ¡Buenos días, <span id="userName">Usuario</span>!
+                </h1>
+                <p class="welcome-subtitle" id="welcomeSubtitle">¡Sigue así! Tu progreso es increíble</p>
+            </section>
+
+            <!-- Estadísticas con Iconos Bonitos -->
             <section class="stats-section">
                 <div class="stat-card">
-                    <h3>Rutinas Totales</h3>
-                    <p id="totalWorkouts" class="stat-number">0</p>
+                    <div class="stat-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Rutinas Totales</h3>
+                        <p id="totalWorkouts" class="stat-number">0</p>
+                    </div>
                 </div>
+                
                 <div class="stat-card">
-                    <h3>Ejercicios Realizados</h3>
-                    <p id="totalExercises" class="stat-number">0</p>
+                    <div class="stat-icon">
+                        <i class="fas fa-list-check"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Ejercicios Realizados</h3>
+                        <p id="totalExercises" class="stat-number">0</p>
+                    </div>
                 </div>
+                
                 <div class="stat-card">
-                    <h3>Última Rutina</h3>
-                    <p id="lastWorkout" class="stat-date">-</p>
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Última Rutina</h3>
+                        <p id="lastWorkout" class="stat-date">-</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Días Activos</h3>
+                        <p id="activeDays" class="stat-number">0</p>
+                    </div>
                 </div>
             </section>
 
-            <!-- Acciones Rápidas -->
+            <!-- Acciones Rápidas Mejoradas -->
             <section class="actions-section">
                 <button id="addWorkoutBtn" class="btn-action primary">
+                    <i class="fas fa-plus icon"></i>
                     Nueva Rutina
                 </button>
                 <button id="viewProgressBtn" class="btn-action secondary">
+                    <i class="fas fa-chart-line icon"></i>
                     Ver Progreso
+                </button>
+                <button id="historyBtn" class="btn-action ghost">
+                    <i class="fas fa-history icon"></i>
+                    Historial Completo
                 </button>
             </section>
 
-            <!-- Lista de Rutinas Recientes -->
+            <!-- Lista de Rutinas Mejor Estructurada -->
             <section class="workouts-section">
-                <h2>Rutinas Recientes</h2>
-                <div id="workoutsList" class="workouts-list">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-clock icon"></i>
+                        Rutinas Recientes
+                    </h2>
+                    <span class="typography-body-small" id="workoutsCount">
+                        <i class="fas fa-list icon-small"></i>
+                        0 rutinas
+                    </span>
+                </div>
+                
+                <div id="workoutsList" class="workouts-grid">
                     <!-- Las rutinas se cargarán aquí con JavaScript -->
                 </div>
-                <div id="emptyState" class="empty-state">
-                    <p>Aún no tienes rutinas registradas</p>
-                    <p>Crea tu primera rutina para empezar a trackear tu progreso</p>
+                
+                <div id="emptyState" class="empty-state" style="display: none;">
+                    <div class="empty-state-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Comienza tu Journey Fitness</h3>
+                    <p>Crea tu primera rutina para empezar a trackear tu progreso y alcanzar tus metas</p>
+                    <button id="createFirstWorkout" class="btn-action primary">
+                        <i class="fas fa-plus icon"></i>
+                        Crear Mi Primera Rutina
+                    </button>
                 </div>
             </section>
         </main>
